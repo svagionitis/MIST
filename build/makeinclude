@@ -15,9 +15,10 @@ DEBUGFLAGS   = $(CXXFLAGS) -DDEBUG
 IMGLIBS = -ljpeg -lpng -ltiff
 #IMGLIBS = -ljpeg -lpng -ltiff -lgif
 LIBS = -lpthread -lz -lm
-LAPACKLIBS = -L../lib -lf2c -llapack -lblas
+LAPACKLIBS = -L../lib -llapack -lblas -lf2c
 #LAPACKLIBS = -L../lib -llapack_atlas -lblas -latlas
 MKLASLIBS = -L../lib -lmkl_lapack
+OPENGLLIBS = -lGLU -lGL
 
 # Be quiet when building...
 .SILENT:
@@ -39,5 +40,5 @@ MKLASLIBS = -L../lib -lmkl_lapack
 
 # For FLTK compilation
 .cpp.obj:
-	echo Compiling $<...
+	echo Compiling FLTK $<...
 	$(CXX) $(CXXFLAGS) -c $< -o $*.obj $(INCLUDE) `fltk-config --use-gl --cxxflags`

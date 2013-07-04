@@ -50,12 +50,12 @@
 
 
 #include <iostream>
+#include <cstdio>
 #include <string>
 
 #include <deque>
 #include <map>
 #include <algorithm>
-
 
 // mist–¼‘O‹óŠÔ‚ÌŽn‚Ü‚è
 _MIST_BEGIN

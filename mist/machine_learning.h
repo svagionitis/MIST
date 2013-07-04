@@ -51,7 +51,7 @@
 	#include "random.h"
 #endif
 
-
+#include <cstdio>
 #include <ctime>
 #include <vector>
 #include <map>

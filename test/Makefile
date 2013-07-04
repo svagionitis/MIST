@@ -98,13 +98,13 @@ thread_test : thread_test.o
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LIBS) $(LDLIBS)
 
 image_test : image_test.obj image_test_window.obj
-	$(CXX) $(CXXFLAGS) -o $@ $^ `fltk-config --use-gl --ldflags` $(LDLIBS) $(IMGLIBS) $(LIBS)
+	$(CXX) $(CXXFLAGS) -o $@ $^ `fltk-config --use-gl --use-glut --use-images --ldflags` $(LDLIBS) $(IMGLIBS) $(LIBS) $(OPENGLLIBS)
 
 raw_test : raw_test.obj ct_image_window.obj
-	$(CXX) $(CXXFLAGS) -o $@ $^ `fltk-config --use-gl --ldflags` $(LDLIBS) $(IMGLIBS) $(LIBS)
+	$(CXX) $(CXXFLAGS) -o $@ $^ `fltk-config --use-gl --use-glut --use-images --ldflags` $(LDLIBS) $(IMGLIBS) $(LIBS) $(OPENGLLIBS)
 
 volumerender_test : volumerender_test.obj volr_image_window.obj
-	$(CXX) $(CXXFLAGS) -o $@ $^ `fltk-config --use-gl --ldflags` $(LDLIBS) $(IMGLIBS) $(LIBS)
+	$(CXX) $(CXXFLAGS) -o $@ $^ `fltk-config --use-gl --use-glut --use-images --ldflags` $(LDLIBS) $(IMGLIBS) $(LIBS) $(OPENGLLIBS)
 
 wav_test : wav_test.o
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LIBS) $(LDLIBS)

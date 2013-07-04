@@ -27,6 +27,7 @@
 // 
 
 #include <iostream>
+#include <cstdio>
 
 #include <mist/timer.h>
 #include <mist/mist.h>

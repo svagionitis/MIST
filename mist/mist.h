@@ -13,10 +13,10 @@
 **
 **         We developed these programs since 2003/09/05.
 **
-**             $LastChangedDate::                      $
-**             $LastChangedRevision$
-**             $LastChangedBy$
-**             $HeadURL$
+**             $LastChangedDate:: 2011-04-26 05:10:24 #$
+**             $LastChangedRevision: 1365 $
+**             $LastChangedBy: ddeguchi $
+**             $HeadURL: http://mist.murase.m.is.nagoya-u.ac.jp/svn/mist/trunk/mist/mist.h $
 **
 **
 **              Copyright MIST Project Team.
@@ -2782,8 +2782,8 @@ public:
 	{
 		if( base::resize( o.size1( ) + margin1_ * 2, o.size2( ) + margin2_ * 2 ) )
 		{
-			reso1( o.reso1( ) );
-			reso2( o.reso2( ) );
+			this->reso1( o.reso1( ) );
+			this->reso2( o.reso2( ) );
 			return( copy( o ) );
 		}
 		else
@@ -2807,9 +2807,9 @@ public:
 	{
 		if( base::resize( o.size1( ) + margin1_ * 2, o.size2( ) + margin2_ * 2, o.size3( ) + margin3_ * 2 ) )
 		{
-			reso1( o.reso1( ) );
-			reso2( o.reso2( ) );
-			reso3( o.reso3( ) );
+			this->reso1( o.reso1( ) );
+			this->reso2( o.reso2( ) );
+			this->reso3( o.reso3( ) );
 			return( copy( o ) );
 		}
 		else

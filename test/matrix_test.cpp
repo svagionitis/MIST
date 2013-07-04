@@ -27,6 +27,7 @@
 // 
 
 #include <iostream>
+#include <cstdio>
 
 #include <cmath>
 #include <mist/mist.h>

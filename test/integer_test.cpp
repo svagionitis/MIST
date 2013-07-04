@@ -27,6 +27,7 @@
 // 
 
 #include <iostream>
+#include <cstdio>
 #include <mist/config/integer.h>
 
 int main( int argc, char *argv[] )

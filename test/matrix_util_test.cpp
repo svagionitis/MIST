@@ -27,6 +27,7 @@
 // 
 
 #include <iostream>
+#include <cstdio>
 #include <mist/mist.h>
 #include <mist/matrix.h>
 #include <mist/numeric.h>

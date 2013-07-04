@@ -27,6 +27,7 @@
 // 
 
 #include <iostream>
+#include <cstdio>
 #include <ctime>
 
 #include <mist/crc.h>
