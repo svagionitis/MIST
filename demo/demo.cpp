@@ -45,6 +45,9 @@
 
 #include <vector>
 
+// GTr stands for Google Translate and 
+// it's the translation in English that Gtr gives for the comments
+
 typedef struct
 {
 	size_t left;
@@ -133,6 +136,7 @@ inline void enum_face_parts( mist::array2< T, Allocator > &in, face_parts_list &
 	}
 
 	// 画像の縁5分の1のところは計算しない
+        // GTr: Do not calculate the place of one-fifth of the edge of the image
 	for( j = in.height( ) / 5 ; j < in.height( ) / 5 * 4 ; j++ )
 	{
 		for( i = in.width( ) / 5 ; i < in.width( ) / 5 * 4 ; i++ )
@@ -157,6 +161,7 @@ inline void enum_face_parts( mist::array2< T, Allocator > &in, face_parts_list &
 	}
 
 	const size_type LENWMAX	= 50;				// 顔部品候補領域として許容する最大xサイズ
+                                                                // Gtr: X maximum size to be acceptable face parts candidate region
 	const size_type LENHMAX	= 30;				// 顔部品候補領域として許容する最大yサイズ
 	const size_type LENWMIN	= 5;				// 顔部品候補領域として許容する最小xサイズ
 	const size_type LENHMIN	= 3;				// 顔部品候補領域として許容する最小yサイズ
@@ -216,6 +221,7 @@ inline bool eye_template_matching( mist::array2< T1, Allocator1 > &in, const mis
 	typedef typename mist::array2< T1, Allocator1 >::size_type  size_type;
 	typedef typename mist::array2< T1, Allocator1 >::difference_type difference_type;
 	const size_type TREYEX = 24;			// テンプレート右目領域重心位置x座標
+                                                        // GTr: Template right eye area centroid position x coordinate
 	const size_type TREYEY = 30;			// テンプレート右目領域重心位置y座標
 	const size_type TLEYEX = 68;			// テンプレート左目領域重心位置x座標
 	const size_type TLEYEY = 33;			// テンプレート左目領域重心位置y座標
@@ -226,6 +232,7 @@ inline bool eye_template_matching( mist::array2< T1, Allocator1 > &in, const mis
 	double max_score = -1.0, score;
 
 	// 右目を抽出
+        // GTr: Extract right eye
 	for( i = 0 ; i < list.size( ) ; i++ )
 	{
 		face_parts &f = list[ i ];
@@ -251,6 +258,7 @@ inline bool eye_template_matching( mist::array2< T1, Allocator1 > &in, const mis
 	index = 0;
 
 	// 左目を抽出
+        // GTr: Extract left eye
 	for( i = 0 ; i < list.size( ) ; i++ )
 	{
 		face_parts &f = list[ i ];
@@ -273,13 +281,17 @@ inline bool eye_template_matching( mist::array2< T1, Allocator1 > &in, const mis
 	eye_left = list[ index ];
 
 	const double MAXDME = 70.0;		// 棄却判定の距離閾値[pixel]
+                                                // GTr: Distance threshold decision to dismiss [pixel]
 	const double MINDME = 5.0;		// 棄却判定の距離閾値[pixel]
 	double d_re_le = std::sqrt( ( eye_left.cx - eye_right.cx ) * ( eye_left.cx - eye_right.cx ) + ( eye_left.cy - eye_right.cy ) * ( eye_left.cy - eye_right.cy ) );
 
 	// 両目が離れすぎている場合，右目と左目が入れ替わっている場合，両目の距離が近すぎる場合は棄却する
+        // GTr: If both eyes are too far apart, if the left eye and right eye are swapped, 
+        // to be rejected if the distance between the eyes is too close
 	if( d_re_le > MAXDME || eye_left.cx < eye_right.cx || eye_left.cx - eye_right.cx < MINDME )
 	{
 		// 目領域無し
+                // GTr: Without eye region
 		list.clear( );
 		return( false );
 	}
@@ -294,6 +306,7 @@ inline bool eye_template_matching( mist::array2< T1, Allocator1 > &in, const mis
 
 
 // 右目と左目を囲む四角形領域を黒く塗りつぶす
+// GTr: Black out the rectangular area around the right eye and the left eye
 template < class T, class Allocator >
 inline void eye_masking( mist::array2< T, Allocator > &in, const face_parts &leye, const face_parts &reye )
 {
@@ -312,6 +325,7 @@ inline void eye_masking( mist::array2< T, Allocator > &in, const face_parts &ley
 		for( size_type i = 0 ; i < in.width( ) ; i++ )
 		{
 			// 四角形との衝突判定
+                        // GTr: Collision detection with square
 			p0 = vector_type( i, j, 0 );
 			vec = ( p2 - p1 ) * ( p1 - p0 );
 			if( ( vec ^ ( ( p3 - p2 ) * ( p2 - p0 ) ) ) <= 0.0 )
@@ -340,6 +354,7 @@ inline bool eye_masking( mist::array2< T, Allocator > &in )
 	mist::array2< double > image1, image2;
 
 	// テンプレート画像の初期化
+        // GTr: Initialization of the template image
 	static unsigned char ftemplate[] = {
 			#include "./face_template.dat"
 	};
@@ -352,21 +367,26 @@ inline bool eye_masking( mist::array2< T, Allocator > &in )
 		face_template[ i ] = ftemplate[ i ];
 	}
 	// テンプレート画像の初期化はここまで
+        // GTr: Initialization of the template image is so far
 
 
 	// カラー画像からグレースケールに変換
+        // GTr: The conversion from color to grayscale image
 	mist::convert( in, image2 );
 
 	// 画像を320×240に線形補間する
+        // GTr: I linear interpolation to the 320x240 image
 	mist::nearest::interpolate( image2, image1, 320, 240 );
 	double ax = image1.width( ) / static_cast< double >( in.width( ) );
 	double ay = image1.height( ) / static_cast< double >( in.height( ) );
 
 	// 最小値フィルタ
+        // GTr: Minimum value filter
 	mist::erosion( image1, mist::morphology::square( 1.0, image1.reso1( ), image1.reso2( ) ) );
 	vertical( image1, image2 );
 
 	// Pタイル法を用いた閾値処理
+        // GTr: Threshold processing using the P-tile method
 	double th = mist::ptile::threshold( image2, 95.0 );
 	for( i = 0 ; i < image2.size( ) ; i++ )
 	{
@@ -376,12 +396,15 @@ inline bool eye_masking( mist::array2< T, Allocator > &in )
 	face_parts_list list;
 
 	// 顔部品候補領域を抽出する却
+        // GTr: Cooling to extract the facial parts candidate region
 	enum_face_parts( image2, list );
 
 	// 顔部品候補領域に対し，テンプレートマッチングを用いて最も目と思われる部分を選択する
+        // Gtr: Face parts against candidate area to select a portion seems most eye using a template matching
 	if( !eye_template_matching( image2, face_template, list ) )
 	{
 		// 目領域にマッチする部分が存在しないので棄却
+                // Gtr: Reject portion matching the eye area because there is no
 		//for( i = 0 ; i < image2.size( ) ; i++ )
 		//{
 		//	in[ i ] = image2[ i ] == 0 ? 0 : 255;
@@ -399,6 +422,7 @@ inline bool eye_masking( mist::array2< T, Allocator > &in )
 		list[ 1 ].top    = static_cast< size_type >( list[ 0 ].top    / ay );
 		list[ 1 ].bottom = static_cast< size_type >( list[ 0 ].bottom / ay );
 		// 目領域にマッチする部分が存在しないので棄却
+                // Gtr: Reject portion matching the eye area because there is no
 		eye_masking( in, list[ 0 ], list[ 1 ] );
 		return( true );
 	}
@@ -407,6 +431,7 @@ inline bool eye_masking( mist::array2< T, Allocator > &in )
 
 
 // ここから，ユーティリティ関数群
+// Gtr: From here, utility functions
 inline std::string to_lower_case( const std::string &str )
 {
 	std::string s = "";
