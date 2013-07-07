@@ -30,11 +30,23 @@ IF(NOT TIFF_FOUND)
                 or sudo apt-get install libtiff4 libtiff4-dev")
 ENDIF()
 
+# Find Lapack libraries
+FIND_PACKAGE(BLAS REQUIRED)
+IF(NOT BLAS_FOUND)
+ENDIF()
+
+FIND_PACKAGE(LAPACK REQUIRED)
+IF(NOT LAPACK_FOUND)
+ENDIF()
+
 SET(LIBS ${CMAKE_THREAD_LIBS_INIT} z m)
 SET(IMGLIBS ${JPEG_LIBRARY} ${PNG_LIBRARY} ${TIFF_LIBRARY})
+SET(LAPACKLIBS ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
+
+SET(CMAKE_CXX_FLAGS "-Wall -W -O2")
 
 # Add directories where executables will be produced
 ADD_SUBDIRECTORY(demo)
-#ADD_SUBDIRECTORY(test)
+ADD_SUBDIRECTORY(test)
 #ADD_SUBDIRECTORY(unittest)
 
