@@ -2,47 +2,6 @@
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
 
-# Set the source files
-SET(TEST_SRC array_test.cpp
-	     type_test.cpp
-	     memory_test.cpp
-	     hash_test.cpp
-	     callback_test.cpp
-	     pointer_test.cpp
-	     limits_test.cpp
-	     operators_test.cpp
-	     binary_test.cpp
-	     color_test.cpp
-	     quaternion_test.cpp
-	     iterator_test.cpp
-	     thread_test.cpp
-	     region_growing_test.cpp
-	     machine_learning_test.cpp
-	     wav_test.cpp
-	     margin_array_test.cpp
-	     median_test.cpp
-	     hough_test.cpp
-	     morphology_test.cpp
-	     fft_test.cpp
-	     singleton_test.cpp
-	     integer_test.cpp
-	     decimal_test.cpp
-	     vector_test.cpp
-	     set_test.cpp
-	     crc_test.cpp
-	     random_test.cpp
-	     minimization_test.cpp
-	     mixture_test.cpp
-	     environment_test.cpp
-	     matrix_test.cpp
-	     matrix_util_test.cpp
-	     matrix_util_test2.cpp
-	     image_test.cpp
-	     raw_test.cpp
-	     volumerender_test.cpp
-	)
-
-SET_SOURCE_FILES_PROPERTIES(${TEST_SRC} PROPERTIES LANGUAGE CXX)
 
 ADD_EXECUTABLE(array_test array_test.cpp)
 TARGET_LINK_LIBRARIES (array_test ${LIBS})
@@ -64,4 +23,94 @@ TARGET_LINK_LIBRARIES (pointer_test ${LIBS})
 
 ADD_EXECUTABLE(matrix_test matrix_test.cpp)
 TARGET_LINK_LIBRARIES (matrix_test ${LIBS} ${LAPACKLIBS})
+
+ADD_EXECUTABLE(matrix_util_test matrix_util_test.cpp)
+TARGET_LINK_LIBRARIES (matrix_util_test ${LIBS} ${LAPACKLIBS})
+
+ADD_EXECUTABLE(matrix_util_test2 matrix_util_test2.cpp)
+TARGET_LINK_LIBRARIES (matrix_util_test2 ${LIBS} ${LAPACKLIBS})
+
+ADD_EXECUTABLE(vector_test vector_test.cpp)
+TARGET_LINK_LIBRARIES (vector_test ${LIBS} ${LAPACKLIBS})
+
+ADD_EXECUTABLE(region_growing_test region_growing_test.cpp)
+TARGET_LINK_LIBRARIES (region_growing_test ${LIBS} ${LAPACKLIBS})
+
+ADD_EXECUTABLE(limits_test limits_test.cpp)
+TARGET_LINK_LIBRARIES (limits_test ${LIBS})
+
+ADD_EXECUTABLE(operators_test operators_test.cpp)
+TARGET_LINK_LIBRARIES (operators_test ${LIBS})
+
+ADD_EXECUTABLE(binary_test binary_test.cpp)
+TARGET_LINK_LIBRARIES (binary_test ${LIBS})
+
+ADD_EXECUTABLE(color_test color_test.cpp)
+TARGET_LINK_LIBRARIES (color_test ${LIBS})
+
+ADD_EXECUTABLE(quaternion_test quaternion_test.cpp)
+TARGET_LINK_LIBRARIES (quaternion_test ${LIBS})
+
+ADD_EXECUTABLE(iterator_test iterator_test.cpp)
+TARGET_LINK_LIBRARIES (iterator_test ${LIBS})
+
+ADD_EXECUTABLE(thread_test thread_test.cpp)
+TARGET_LINK_LIBRARIES (thread_test ${LIBS})
+
+ADD_EXECUTABLE(image_test image_test.cpp image_test_window.cpp)
+TARGET_LINK_LIBRARIES (image_test ${LIBS} ${FLTKLIBS} ${IMGLIBS} ${OPENGLLIBS})
+
+ADD_EXECUTABLE(raw_test raw_test.cpp ct_image_window.cpp)
+TARGET_LINK_LIBRARIES (raw_test ${LIBS} ${FLTKLIBS} ${IMGLIBS} ${OPENGLLIBS})
+
+ADD_EXECUTABLE(volumerender_test volumerender_test.cpp volr_image_window.cpp)
+TARGET_LINK_LIBRARIES (volumerender_test ${LIBS} ${FLTKLIBS} ${IMGLIBS} ${OPENGLLIBS})
+
+ADD_EXECUTABLE(wav_test wav_test.cpp)
+TARGET_LINK_LIBRARIES (wav_test ${LIBS})
+
+ADD_EXECUTABLE(margin_array_test margin_array_test.cpp)
+TARGET_LINK_LIBRARIES (margin_array_test ${LIBS})
+
+ADD_EXECUTABLE(median_test median_test.cpp)
+TARGET_LINK_LIBRARIES (median_test ${LIBS} ${IMGLIBS})
+
+ADD_EXECUTABLE(hough_test hough_test.cpp)
+TARGET_LINK_LIBRARIES (hough_test ${LIBS} ${IMGLIBS})
+
+ADD_EXECUTABLE(morphology_test morphology_test.cpp)
+TARGET_LINK_LIBRARIES (morphology_test ${LIBS} ${IMGLIBS})
+
+ADD_EXECUTABLE(fft_test fft_test.cpp)
+TARGET_LINK_LIBRARIES (fft_test ${LIBS})
+
+ADD_EXECUTABLE(singleton_test singleton_test.cpp)
+TARGET_LINK_LIBRARIES (singleton_test ${LIBS})
+
+ADD_EXECUTABLE(integer_test integer_test.cpp)
+TARGET_LINK_LIBRARIES (integer_test ${LIBS})
+
+ADD_EXECUTABLE(decimal_test decimal_test.cpp)
+TARGET_LINK_LIBRARIES (decimal_test ${LIBS})
+
+ADD_EXECUTABLE(set_test set_test.cpp)
+TARGET_LINK_LIBRARIES (set_test ${LIBS})
+
+ADD_EXECUTABLE(crc_test crc_test.cpp)
+TARGET_LINK_LIBRARIES (crc_test ${LIBS})
+
+ADD_EXECUTABLE(random_test random_test.cpp)
+TARGET_LINK_LIBRARIES (random_test ${LIBS})
+
+ADD_EXECUTABLE(minimization_test minimization_test.cpp)
+TARGET_LINK_LIBRARIES (minimization_test ${LIBS})
+
+ADD_EXECUTABLE(mixture_test mixture_test.cpp)
+TARGET_LINK_LIBRARIES (mixture_test ${LIBS})
+
+ADD_EXECUTABLE(environment_test environment_test.cpp)
+TARGET_LINK_LIBRARIES (environment_test ${LIBS})
+
+ADD_EXECUTABLE(machine_learning_test machine_learning_test.cpp)
+TARGET_LINK_LIBRARIES (machine_learning_test ${LIBS})
 
