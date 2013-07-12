@@ -32,11 +32,25 @@ IF(NOT TIFF_FOUND)
                 or sudo apt-get install libtiff4 libtiff4-dev")
 ENDIF()
 
+FIND_PACKAGE(OpenGL REQUIRED)
+IF(NOT OPENGL_FOUND AND NOT OPENGL_GLU_FOUND)
+	MESSAGE(SEND_ERROR
+		"Could not find OpenGL/Glut library. Install it in Ubuntu using the following command
+		sudo apt-get install freeglut3 freeglut3-dev")
+ENDIF()
+
+FIND_PACKAGE(FLTK REQUIRED)
+IF(NOT FLTK_FOUND)
+	MESSAGE(SEND_ERROR
+		"Could not find FLTK library. Install it in Ubuntu using the following command
+		sudo apt-get install libfltk1.3 libfltk1.3-dev")
+ENDIF()
+
 # Find Lapack libraries and more specifically clapack.
 # There is no known package to download in Ubuntu,
 # so you have to build from the sources. 
 # The location is http://www.netlib.org/clapack/clapack.tgz
-SET(CLAPACK_ROOT ${CMAKE_SOURCE_DIR}/../../lapack/CLAPACK-3.2.1)
+SET(CLAPACK_ROOT ${CMAKE_SOURCE_DIR}/CLAPACK-3.2.1)
 FIND_PACKAGE(CLAPACK REQUIRED)
 
 SET(LIBS ${CMAKE_THREAD_LIBS_INIT} z m)
@@ -45,6 +59,10 @@ SET(IMGLIBS ${JPEG_LIBRARY} ${PNG_LIBRARY} ${TIFF_LIBRARY})
 MESSAGE("IMGLIBS: ${IMGLIBS}")
 SET(LAPACKLIBS ${CLAPACK_LIBRARY})
 MESSAGE("LAPACKLIBS: ${LAPACKLIBS}")
+SET(OPENGLLIBS ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY})
+MESSAGE("OPENGLLIBS: ${OPENGLLIBS}")
+SET(FLTKLIBS ${FLTK_LIBRARIES})
+MESSAGE("FLTKLIBS: ${FLTKLIBS}")
 
 SET(CMAKE_CXX_FLAGS "-Wall -W -O2")
 
