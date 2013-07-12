@@ -58,13 +58,13 @@ ADD_EXECUTABLE(thread_test thread_test.cpp)
 TARGET_LINK_LIBRARIES (thread_test ${LIBS})
 
 ADD_EXECUTABLE(image_test image_test.cpp image_test_window.cpp)
-TARGET_LINK_LIBRARIES (image_test ${LIBS} ${FLTKLIBS} ${IMGLIBS} ${OPENGLLIBS})
+TARGET_LINK_LIBRARIES (image_test ${LIBS} ${FLTKLIBS} ${IMGLIBS} ${OPENGLLIBS} ${CMAKE_DL_LIBS})
 
 ADD_EXECUTABLE(raw_test raw_test.cpp ct_image_window.cpp)
-TARGET_LINK_LIBRARIES (raw_test ${LIBS} ${FLTKLIBS} ${IMGLIBS} ${OPENGLLIBS})
+TARGET_LINK_LIBRARIES (raw_test ${LIBS} ${FLTKLIBS} ${IMGLIBS} ${OPENGLLIBS} ${CMAKE_DL_LIBS})
 
 ADD_EXECUTABLE(volumerender_test volumerender_test.cpp volr_image_window.cpp)
-TARGET_LINK_LIBRARIES (volumerender_test ${LIBS} ${FLTKLIBS} ${IMGLIBS} ${OPENGLLIBS})
+TARGET_LINK_LIBRARIES (volumerender_test ${LIBS} ${FLTKLIBS} ${IMGLIBS} ${OPENGLLIBS} ${CMAKE_DL_LIBS})
 
 ADD_EXECUTABLE(wav_test wav_test.cpp)
 TARGET_LINK_LIBRARIES (wav_test ${LIBS})
