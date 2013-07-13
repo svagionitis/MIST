@@ -69,5 +69,5 @@ SET(CMAKE_CXX_FLAGS "-Wall -W -O2")
 # Add directories where executables will be produced
 ADD_SUBDIRECTORY(demo)
 ADD_SUBDIRECTORY(test)
-#ADD_SUBDIRECTORY(unittest)
+ADD_SUBDIRECTORY(unittest)
 
