@@ -1049,7 +1049,7 @@ public:
 
 		for( size_type i = 0 ; i < base::size( ) ; i++ )
 		{
-			if( !value_compare::eq( operator []( i ), a[ i ], delta ) )
+			if( !value_compare::eq( this->operator []( i ), a[ i ], delta ) )
 			{
 				return( false );
 			}
@@ -1074,7 +1074,7 @@ public:
 
 		for( size_type i = 0 ; i < base::size( ) ; i++ )
 		{
-			if( operator []( i ) != a[ i ] )
+			if( this->operator []( i ) != a[ i ] )
 			{
 				return( false );
 			}

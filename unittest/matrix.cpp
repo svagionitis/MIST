@@ -337,14 +337,14 @@ protected:
 		CPPUNIT_ASSERT_EQUAL( mist::det( m ), ans );
 	}
 
-	template < class T >
-	bool different_sign( const T &v1, const vector_type::value_type &v2 )
+	template < class T1 >
+	bool different_sign( const T1 &v1, const vector_type::value_type &v2 )
 	{
 		return( v1 * v2 < 0 );
 	}
 
-	template < class T >
-	bool different_sign( const std::complex< T > &v1, const vector_type::value_type &v2 )
+	template < class T1 >
+	bool different_sign( const std::complex< T1 > &v1, const vector_type::value_type &v2 )
 	{
 		return( v1.real( ) * v2 < 0 );
 	}

@@ -1,0 +1,62 @@
+# Look for header files
+INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
+
+FIND_PACKAGE(CppUnit REQUIRED)
+IF(NOT CPPUNIT_FOUND)
+	MESSAGE(SEND_ERROR
+		"Could not find CppUnit library. Install it in Ubuntu using the following command
+		sudo apt-get install libcppunit-1.12-1 libcppunit-dev")
+ENDIF()
+
+# Basic Data
+SET(SOURCES_files_BASICDATA
+	main.cpp
+	matrix.cpp
+	quaternion.cpp
+	vector2.cpp
+	vector3.cpp
+	)
+SOURCE_GROUP("BASICDATA" FILES ${SOURCES_files_BASICDATA})
+SET(SOURCES_BASICDATA ${SOURCES_files_BASICDATA})
+
+# Header File
+SET(SOURCES_files_HEADER_FILE
+	macros.h
+	)
+SOURCE_GROUP("HEADER FILE" FILES ${SOURCES_files_HEADER_FILE})
+SET(SOURCES_HEADER_FILE ${SOURCES_files_HEADER_FILE})
+
+# Hash Function
+SET(SOURCES_files_HASHFUNCTION
+	md2.cpp
+	md4.cpp
+	md5.cpp
+	sha1.cpp
+	sha256.cpp
+	sha384.cpp
+	sha512.cpp
+	)
+SOURCE_GROUP("HASHFUNCTION" FILES ${SOURCES_files_HASHFUNCTION})
+SET(SOURCES_HASHFUNCTION ${SOURCES_files_HASHFUNCTION})
+
+# Filter
+SET(SOURCES_files_FILTER
+	region_growing.cpp
+	)
+SOURCE_GROUP("FILTER" FILES ${SOURCES_files_FILTER})
+SET(SOURCES_FILTER ${SOURCES_files_FILTER})
+
+SET(SOURCES
+	${SOURCES_BASICDATA}
+	${SOURCES_HEADER_FILE}
+	${SOURCES_HASHFUNCTION}
+	${SOURCES_FILTER}
+	)
+
+ADD_EXECUTABLE(unittest ${SOURCES})
+TARGET_LINK_LIBRARIES(unittest 
+			${CPPUNIT_LIBRARIES}
+			${LIBS} 
+			${LAPACKLIBS})
+
