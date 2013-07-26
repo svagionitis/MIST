@@ -46,6 +46,9 @@ int main( int argc, char *argv[] )
 
 	input.fill( 255 );
 
+        argc = 0;
+        std::cout << "Running " << argv[argc] << std::endl;
+
 	for( difference_type j = 0 ; j < h ; j++ )
 	{
 		double ry = j - h / 2.0;

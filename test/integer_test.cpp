@@ -32,6 +32,9 @@
 
 int main( int argc, char *argv[] )
 {
+        argc = 0;
+        std::cout << "Running " << argv[argc] << std::endl;
+
 //	mist::integer< 21 > v1( 100000 ), v2( 2 );
 //	mist::integer< 20 > v1( "1234567890123456788" ), v2( "1234567890123456789" );
 //	mist::integer< 20 > v1( "1049" ), v2( "1048" );

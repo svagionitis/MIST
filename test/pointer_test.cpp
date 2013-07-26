@@ -55,6 +55,9 @@ int main( int argc, char *argv[] )
 {
 	using namespace std;
 
+        argc = 0;
+        std::cout << "Running " << argv[argc] << std::endl;
+
 	{
 		mist::scoped_ptr< A > a( new A( "test" ) );
 

@@ -47,6 +47,9 @@ int main( int argc, char *argv[] )
 {
 	using namespace std;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
+
 	std::string str =	"Copyright (c) 2003-2005, MIST Project, Intelligent Media Integration COE, Nagoya University\n"
 						"All rights reserved.\n"
 						"\n"

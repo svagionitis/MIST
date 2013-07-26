@@ -39,6 +39,8 @@ int main( int argc, char *argv[] )
 	using namespace std;
 	using namespace mist;
 
+        argc = 0;
+        std::cout << "Running " << argv[argc] << std::endl;
 
 	{
 //		array< int > data( 20000 );

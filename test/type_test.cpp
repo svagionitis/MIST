@@ -34,6 +34,9 @@ int main( int argc, char *argv[] )
 {
 	using namespace std;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
+
 	cout << "  1. The type is char [          char  ]: \t"; cout << (int)mist::is_char< char >::value << endl;
 	cout << "  2. The type is char [  signed  char  ]: \t"; cout << (int)mist::is_char< signed char >::value << endl;
 	cout << "  3. The type is char [ unsigned char  ]: \t"; cout << (int)mist::is_char< unsigned char >::value << endl;

@@ -37,6 +37,9 @@ int main( int argc, char *argv[] )
 {
 	using namespace std;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
+
 	{
 		{
 			cout << "Forward Iterator Test row axis" << endl;

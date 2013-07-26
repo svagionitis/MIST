@@ -34,6 +34,9 @@ int main( int argc, char *argv[] )
 {
 	using namespace std;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
+
 	typedef mist::array2< double >::size_type size_type;
 
 	mist::array2< double > a( 5, 5 );

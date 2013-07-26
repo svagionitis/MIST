@@ -33,6 +33,9 @@ int main( int argc, char *argv[] )
 {
 	using namespace std;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
+
 	mist::quaternion< signed int > v1( 1, 2, 3, 4 );
 	mist::quaternion< float > v2( 1.5, 3.5, 2.5, 4.5 );
 

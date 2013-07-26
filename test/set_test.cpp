@@ -165,6 +165,9 @@ void multiset_test( )
 
 int main( int argc, char *argv[] )
 {
+        argc = 0;
+        std::cout << "Running " << argv[argc] << std::endl;
+
 	std::cout << "Set Test" << std::endl;
 	set_test( );
 

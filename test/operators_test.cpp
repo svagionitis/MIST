@@ -66,6 +66,9 @@ int main( int argc, char *argv[] )
 {
 	using namespace std;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
+
 	value< int > v1( 2 ), v2( 2 );
 
 	cout << " ( A, B ) = ( " << v1 << ", " << v2 << " )" << endl;

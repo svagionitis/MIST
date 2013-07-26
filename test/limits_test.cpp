@@ -35,6 +35,9 @@ int main( int argc, char *argv[] )
 	using namespace std;
 	using namespace mist;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
+
 	cout << " 1. The minimum value of          char  is\t"; cout << (int)type_limits< char >::minimum( ) << endl;
 	cout << " 2. The minimum value of  signed  char  is\t"; cout << (int)type_limits< signed char >::minimum( ) << endl;
 	cout << " 3. The minimum value of unsigned char  is\t"; cout << (int)type_limits< unsigned char >::minimum( ) << endl;

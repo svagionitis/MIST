@@ -41,6 +41,9 @@ int main( int argc, char *argv[] )
 	unsigned short	crc16;
 	unsigned int	crc32;
 
+        argc = 0;
+        printf("Running %s\n", argv[argc]);
+
 	mist::uniform::random	rnd( clock( ) );
 
 	for( int n = 0 ; n < DATALEN ; n++ )

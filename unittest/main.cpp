@@ -38,6 +38,9 @@
 
 int main( int argc, char **argv )
 {
+        argc = 0;
+        std::cout << "Running " << argv[argc] << std::endl;
+
 	// イベントマネージャを作成する
 	CPPUNIT_NS::TestResult controller;
 

@@ -91,6 +91,9 @@ int main( int argc, char *argv[] )
 
 	double ftol = 1.0e-8;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
+
 	{
 		typedef mist::__minimization_utility__::__no_copy_constructor_functor__< f1 > functor_reference;
 		matrix_type p( 2, 1 );

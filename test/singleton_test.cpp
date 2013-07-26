@@ -45,6 +45,9 @@ void bar( )
 
 int main( int argc, char *argv[] )
 {
+        argc = 0;
+        std::cout << "Running " << argv[argc] << std::endl;
+
 	mist::singleton< int >::get_instance( ) = 0;
 	mist::singleton< int, 1 >::get_instance( ) = 20;
 

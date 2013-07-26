@@ -33,6 +33,9 @@ int main( int argc, char *argv[] )
 {
 	using namespace std;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
+
 	typedef size_t size_type;
 	size_type i, j;
 

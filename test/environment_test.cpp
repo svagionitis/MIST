@@ -33,6 +33,8 @@ int main( int argc, char *argv[] )
 {
 	using namespace std;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
 
 	cout << " 1. OS     : "; cout << mist::os( ) << endl;
 	cout << " 2. CPU    : "; cout << mist::cpu( ) << endl;

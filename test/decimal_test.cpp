@@ -34,6 +34,9 @@ int main( int argc, char *argv[] )
 {
 	using namespace std;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
+
 //	mist::decimal< 100 > v1( "2.1" ), v2( "1.1" );
 //	mist::decimal< 10 > v1( "2.0" ), v2( "1.1" );
 	mist::decimal< 20 > v1( 0.25 ), v2( 3.14159265358979323846264338327950288419716940 );

@@ -39,14 +39,11 @@ int main( int argc, char *argv[] )
 {
 	typedef mist::array< double >::size_type size_type;
 	size_type num = 100000;
-
-
-
 	
 	mist::array< double > data( num );
 
-
-
+        argc = 0;
+        std::cout << "Running " << argv[argc] << std::endl;
 
 	std::cout << "***** mist::uniform::random test *****" << std::endl;
 

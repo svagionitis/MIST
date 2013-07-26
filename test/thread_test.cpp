@@ -79,6 +79,9 @@ int main( int argc, char *argv[] )
 	parameter param[ CREATE_THREAD_NUM ];
 	mist::thread_handle t[ CREATE_THREAD_NUM ];
 
+        argc = 0;
+        std::cout << "Running " << argv[argc] << std::endl;
+
 	// 標準的なスレッド呼び出しを利用したサンプル
 	int i;
 	for( i = 0 ; i < CREATE_THREAD_NUM ; i++ )

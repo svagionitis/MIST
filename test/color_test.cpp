@@ -33,6 +33,9 @@ int main( int argc, char *argv[] )
 {
 	using namespace std;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
+
 	{
 		double r = 255, g = 0, b = 0;
 		double h, s, v, R, G, B;

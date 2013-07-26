@@ -39,6 +39,9 @@ int main( int argc, char *argv[] )
 	char memories[ 40 ];
 	size_type num = sizeof( memories ) - 1;
 
+        argc = 0;
+        cout << "Running " << argv[argc] << endl;
+
 	// ‹¤—Lƒƒ‚ƒŠ—Ìˆæ‚ð‰Šú‰»‚·‚é
 	for( i = 0 ; i < num ; i++ )
 	{
