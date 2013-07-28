@@ -185,6 +185,9 @@ int main( int argc, char *argv[] )
 
 	pwindow = &window;
 
+        argc = 0;
+        std::cout << "Running " << argv[argc] << std::endl;
+
 	Fl::gl_visual( FL_RGB );
 	window.show( );
 	Fl::background( 212, 208, 200 );
@@ -208,10 +211,12 @@ void read_dicom_test( const char *filename )
 	mist::read_dicom( image_object, filename );
 }
 
+/*
 void write_dicom_test( const char *filename )
 {
-//	mist::write_dicom( image_object, filename, 1 );
+	mist::write_dicom( image_object, filename, 1 );
 }
+*/
 
 void euclidean_distance_transform_test( )
 {
