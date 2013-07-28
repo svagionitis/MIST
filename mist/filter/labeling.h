@@ -197,8 +197,8 @@ namespace __labeling_controller__
 
 		template < class Array, class Vector >
 		static inline typename Array::size_type neighbor( Array &in, const Vector &T, typename Vector::value_type *L,
-										const typename Array::size_type i, const typename Array::size_type j, const typename Array::size_type k,
-										const typename Array::size_type w, const typename Array::size_type h, const typename Array::size_type d )
+										const typename Array::size_type i, const typename Array::size_type j, const typename Array::size_type /* k */,
+										const typename Array::size_type /* w */, const typename Array::size_type /* h */, const typename Array::size_type /* d */ )
 		{
 			typedef typename Array::size_type size_type;
 

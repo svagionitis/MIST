@@ -192,7 +192,7 @@ namespace __figure_dedomposition__
 		//! @param[in] out       c o—Íƒ‰ƒxƒ‹‰æ‘œ
 		//!
 		template < class Array1, class Array2 >
-		void operator()( size_t loop, size_t label_num, double radius, const Array1 &in, const Array2 &out ) const
+		void operator()( size_t /* loop */, size_t /* label_num */, double /* radius */, const Array1 /* &in */, const Array2 /* &out*/ ) const
 		{
 		}
 	};

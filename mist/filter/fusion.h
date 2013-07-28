@@ -143,7 +143,7 @@ namespace __fusion_controller__
 		}
 
 		template < class Array, int DIMENSION >
-		static void transform( Array &in, typename Array::size_type length, typename Array::size_type thread_id, typename Array::size_type thread_num, __access__< DIMENSION > dmy )
+		static void transform( Array &in, typename Array::size_type length, typename Array::size_type thread_id, typename Array::size_type thread_num, __access__< DIMENSION > /* dmy */ )
 		{
 			typedef typename Array::size_type  size_type;
 			typedef typename Array::value_type value_type;
@@ -232,7 +232,7 @@ namespace __fusion_controller__
 		}
 
 		template < class Array, int DIMENSION >
-		static void transform( Array &in, typename Array::size_type length, typename Array::size_type thread_id, typename Array::size_type thread_num, __access__< DIMENSION > dmy )
+		static void transform( Array &in, typename Array::size_type length, typename Array::size_type thread_id, typename Array::size_type thread_num, __access__< DIMENSION > /* dmy */ )
 		{
 			typedef typename Array::size_type  size_type;
 			typedef typename Array::value_type value_type;
@@ -396,7 +396,7 @@ namespace __fusion_controller__
 //! @param[in]  fusion     … 使用する距離関数と拡大縮小の組み合わせ
 //! 
 template < class Array1, class Array2, class Fusion >
-bool fusion( const Array1 &in, Array2 &out, typename Array1::size_type length, typename Array1::size_type thread_num, Fusion fusion )
+bool fusion( const Array1 &in, Array2 &out, typename Array1::size_type length, typename Array1::size_type thread_num, Fusion /* fusion */ )
 {
 	if( in.empty( ) )
 	{
