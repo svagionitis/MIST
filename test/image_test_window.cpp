@@ -73,7 +73,9 @@ inline void image_test_window::cb_Save1_i(Fl_Menu_*, void*) {
   const char *filename = fl_file_chooser( "Save DICOM", "DICOM File (*)", "" );
 if( filename == NULL ) return;
 
+/*
 write_dicom_test( filename );
+*/
 
 draw_area->redraw( );
 Fl::wait( 0 );
@@ -391,9 +393,9 @@ Fl_Menu_Item image_test_window::menu_[] = {
 };
 
 image_test_window::image_test_window() {
-  Fl_Double_Window* w;
+//  Fl_Double_Window* w;
   { Fl_Double_Window* o = main_window = new Fl_Double_Window(551, 568);
-    w = o;
+//    w = o;
     o->user_data((void*)(this));
     { Fl_Group* o = new Fl_Group(5, 30, 540, 530);
       o->box(FL_DOWN_BOX);
