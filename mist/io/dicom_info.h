@@ -1408,21 +1408,21 @@ namespace dicom
 		// RLE‚Ìƒwƒbƒ_î•ñ‚ğ“Ç‚İ‚Ş
 		size_type number_of_segments = to_current_endian( byte_array< unsigned int >( psrc ), true ).get_value( );
 		difference_type frame_offset[ 15 ] = {
-			to_current_endian( byte_array< unsigned int >( psrc +  4 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc +  8 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 12 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 16 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 20 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 24 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 28 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 32 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 36 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 40 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 44 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 48 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 52 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 56 ), from_little_endian ).get_value( ),
-			to_current_endian( byte_array< unsigned int >( psrc + 60 ), from_little_endian ).get_value( ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc +  4 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc +  8 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 12 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 16 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 20 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 24 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 28 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 32 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 36 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 40 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 44 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 48 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 52 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 56 ), from_little_endian ).get_value( ) ),
+			static_cast<difference_type>( to_current_endian( byte_array< unsigned int >( psrc + 60 ), from_little_endian ).get_value( ) ),
 		};
 
 		if( frame_offset[ 0 ] != 64 )
@@ -1557,6 +1557,19 @@ namespace dicom
 
 		return( pdst );
 #else
+                // Use compressedLen and compressedDstLen to remove warnings.
+                difference_type compressedLen = psrc_end - psrc;
+                if( compressedLen <= 0 )
+                {
+                        return( NULL );
+                }
+
+                difference_type compressedDstLen = pdst_end - pdst;
+                if( compressedDstLen <= 0 )
+                {
+                        return( NULL );
+                }
+
 		return( NULL );
 #endif
 	}
