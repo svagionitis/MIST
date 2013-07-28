@@ -462,19 +462,19 @@ typename Array1::size_type figure_decomposition( const Array1 &in, Array2 &out, 
 					for( difference_type k = -rz ; k <= rz ; k++ )
 					{
 						size_type pz = k + z;
-						if( pz < 0 || pz >= in.depth( ) ) continue;
+						if( static_cast< difference_type >(pz) < 0 || pz >= in.depth( ) ) continue;
 						double kk = static_cast< double >( k * k );
 
 						for( difference_type j = -ry ; j <= ry ; j++ )
 						{
 							size_type py = j + y;
-							if( py < 0 || py >= in.height( ) ) continue;
+							if( static_cast< difference_type >(py) < 0 || py >= in.height( ) ) continue;
 							double jj = static_cast< double >( j * j );
 
 							for( difference_type i = -rx ; i <= rx ; i++ )
 							{
 								size_type px = i + x;
-								if( px < 0 || px >= in.width( ) ) continue;
+								if( static_cast< difference_type >(px) < 0 || px >= in.width( ) ) continue;
 								double rR = static_cast< double >( i * i + jj + kk );
 
 								size_type cl = static_cast< size_type >( out( px, py, pz ) );
@@ -543,7 +543,7 @@ typename Array1::size_type figure_decomposition( const Array1 &in, Array2 &out, 
 //! @return ï™äÑÇ≥ÇÍÇΩóÃàÊÇÃêî
 //!
 template < class Array1, class Array2 >
-typename Array1::size_type figure_decomposition( const Array1 &in, Array2 &out, double max_distance = -1 )
+typename Array1::size_type figure_decomposition( const Array1 &in, Array2 &out, double max_distance = -1.0 )
 {
 	return( figure_decomposition( in, out, max_distance, __figure_dedomposition__::__mist_dmy_fd_callback__( ) ) );
 }
