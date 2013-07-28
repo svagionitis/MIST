@@ -296,7 +296,11 @@ namespace __environment__
 
 		char buff[ 4096 ];
 
-		fgets( buff, 4096, gid );
+		if ( fgets( buff, 4096, gid ) == NULL )
+                {
+                    pclose( gid );
+                    return("error fgets");
+                }
 
 		pclose( gid );
 
