@@ -68,6 +68,13 @@ extern "C"
 #include <jpeglib.h>
 }
 
+// For MacOsX get errors like the following
+// "cannot convert ¿bool¿ to ¿boolean¿", so
+// setting true to TRUE resolve the issue
+// See http://news.povray.org/povray.unix/thread/%3Cweb.5145947644c9fa6cde1c639f0@news.povray.org%3E/
+#ifdef __APPLE__
+#define true TRUE
+#endif
 
 // mist–¼‘O‹óŠÔ‚ÌŽn‚Ü‚è
 _MIST_BEGIN
