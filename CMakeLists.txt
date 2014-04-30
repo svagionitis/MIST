@@ -50,7 +50,7 @@ ENDIF()
 # There is no known package to download in Ubuntu,
 # so you have to build from the sources. 
 # The location is http://www.netlib.org/clapack/clapack.tgz
-SET(CLAPACK_ROOT ${CMAKE_SOURCE_DIR}/CLAPACK-3.2.1)
+SET(CLAPACK_ROOT ${CMAKE_SOURCE_DIR}/../CLAPACK-3.2.1)
 FIND_PACKAGE(CLAPACK REQUIRED)
 
 SET(LIBS ${CMAKE_THREAD_LIBS_INIT} z m)
