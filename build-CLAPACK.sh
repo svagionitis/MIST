@@ -18,7 +18,8 @@ tar xvf clapack.tgz
 # Build CLAPACK
 cd CLAPACK-3.2.1/
 cp make.inc.example make.inc
-make -j $CPU_CORES lib
+make -j ${CPU_CORES} lib
+make -j ${CPU_CORES} lapacklib
 cd -
 
 # Copy libraries to lib directory

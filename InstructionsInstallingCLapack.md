@@ -21,6 +21,7 @@ Instructions Installing CLapack From Sources
 5.	Start building the libraries with the following command
 
 	`make lib`
+	`make lapacklib`
 
 6.	The libraries that were created can be found with the following command:
 
