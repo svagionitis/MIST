@@ -582,7 +582,7 @@ is added in {{{~/.vimrc}}} then the japanese symbols appear
 
 Source: http://stackoverflow.com/questions/4103970/how-to-read-sjis-encoded-file-in-vim</pre>
 </div>
-<div title="Translate the Japanese comments to English" creator="StavrosVagionitis" modifier="StavrosVagionitis" created="201405012237" modified="201405060712" changecount="5">
+<div title="Translate the Japanese comments to English" creator="StavrosVagionitis" modifier="YourName" created="201405012237" modified="201405061713" changecount="6">
 <pre>In order to get the Japanese comments in the command like, the following command can be executed
 
 {{{
@@ -610,7 +610,10 @@ Used the following command to get the japanese characters on terminal
 /opt/local/bin/grep -srPTHnb  '[^\x00-\x7f]' unittest/ | iconv -c -f SHIFT_JIS -t UTF-8
 }}}
 
-</pre>
+Replace the first two : to dollar $
+{{{
+grep -srPHn  '[^\x00-\x7f]' test/ | iconv -c -f SHIFT_JIS -t UTF-8 | sed 's/:/$/1' | sed 's/:/$/1'
+}}}</pre>
 </div>
 </div>
 <!--POST-STOREAREA-->
